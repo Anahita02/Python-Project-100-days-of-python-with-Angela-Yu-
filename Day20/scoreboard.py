@@ -9,8 +9,9 @@ class Scoreboard(Turtle):
 
     def __init__(self):
         super().__init__()
-        self.score = 0
-        self.highest_score = 0
+        self.score = 0  
+        with open(r"C:\Users\Home\Desktop\Python Project (100 days of python with Angela Yu)\Python-Project-100-days-of-python-with-Angela-Yu-\Day20\data.txt") as data:
+            self.highest_score = int(data.read())
         self.color("white")
         self.penup()
         self.goto(0, 267)
@@ -24,11 +25,10 @@ class Scoreboard(Turtle):
     def reset(self):
         if self.score > self.highest_score:
             self.highest_score = self.score
+            with open(r"C:\Users\Home\Desktop\Python Project (100 days of python with Angela Yu)\Python-Project-100-days-of-python-with-Angela-Yu-\Day20\data.txt", mode="w") as data:
+                data.write(f"{self.highest_score}")
         self.score = 0
         self.update_scoreboard()
-
-
-
 
     # def game_over(self):
     #     self.goto(0, 0)
