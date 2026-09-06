@@ -21,7 +21,7 @@ for index, row in birthday_data.iterrows():
             letter_contents = letter_contents.replace("[NAME]", row["name"])
         print(letter_contents)
 
-        with smtplib.SMTP("smtp.gmail.com""smtp.gmail.com") as connection:
+        with smtplib.SMTP("smtp.gmail.com") as connection:
             connection.starttls()
             connection.login(user=my_email, password="password")
             connection.sendmail(
